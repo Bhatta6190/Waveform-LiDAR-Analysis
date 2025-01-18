@@ -50,4 +50,4 @@ The generated **noise** and **peak height** distributions are saved to `.txt` fi
 ## Dataset
  
 The dataset used in this analysis are LVIS 1B data producs (A sample of which is included in the zip file). For more information on dataset users are
-referred: https://nsidc.org/data/lvisf1b/versions/1. The specific data used here is from NASA BioScape Campaign 2023: https://www.bioscape.io/data.
+referred: https://nsidc.org/data/lvisf1b/versions/1. The specific data used here is from NASA BioScape Campaign 2023 (https://www.bioscape.io/data).
