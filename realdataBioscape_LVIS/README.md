@@ -2,12 +2,12 @@
 
 ## Overview
 
-This code aims to generate **noise** and **signal peak distributions** using real LVIS (Laser Vegetation Imaging Sensor) data. The process involves smoothing the waveforms and then calculating the difference between the noisy and smooth waveforms to generate the noise distribution. The smooth waveform is used to determine the **peak height distribution**. The overall steps include:
+This code aims to generate **noise** and **signal peak distributions** using real LVIS (Laser Vegetation Imaging Sensor) data. These distributions will be used for adding noise to the simulated noise-free data based on the peak height of the simulated waveforms. The distribution are generated through smoothing waveforms and then calculating the difference between the noisy and smooth waveforms to generate the noise distribution. Similarly the noise-free waveforms are used to determine the **peak height distribution**. The overall steps include:
 
 1. **Smoothing the waveforms** to create a noise-free approximation.
 2. **Generating the noise distribution** by subtracting the smooth waveform from the noisy waveform.
-3. **Determining the peak height distribution** from the smooth waveform.
-4. **Visualizing the distributions** and saving them for future use in simulation or noise addition.
+3. **Determining the peak height distribution** from the smooth waveform, subtracting min from max intensity level.
+4. **Saving the distributions** and saving them for future use in noise addition.
 
 ## Requirements
 
@@ -41,14 +41,13 @@ The generated **noise** and **peak height** distributions are saved to `.txt` fi
 2. **Cut-off Frequency**: Adjust the cut-off frequency in the code (`cut_off = 150`) based on your noise characteristics.
 3. **Distribution Files**: The script generates noise and peak height distributions, which can be saved to text files (`lvis_noise_values.txt`, `lvis_peakHeight_values.txt`).
 
-## Example Output
-
-- **Magnitude of FFT**: Displays the frequency distribution of waveforms.
-- **Original and Smoothed Waveforms**: Plots comparing the noisy and denoised signals.
-- **Histograms**: Displays histograms for the noise distribution, peak height distribution, and SNR (Signal-to-Noise Ratio) calculated for each waveform.
-
 ## Notes
 
 - The waveform data (`RXWAVE`) and signal mean (`SIGMEAN`) should be present in the `.h5` files.
 - You can adjust the number of waveforms processed and the cut-off frequency based on your specific needs.
 - The generated noise and peak height distributions can be used for noise simulation in waveform LiDAR data.
+
+## Dataset
+ 
+The dataset used in this analysis are LVIS 1B data producs (A sample of which is included in the zip file). For more information on dataset users are
+referred: https://nsidc.org/data/lvisf1b/versions/1. The specific data use here is from NASA BioScape Campaign 2023(https://www.bioscape.io/data).
