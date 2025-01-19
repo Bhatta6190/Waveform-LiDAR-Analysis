@@ -17,9 +17,12 @@ This directory contains a simulation of **Airborne Lidar System (ALS)** data usi
 - **Receiver Spectral Bandpass**: 10 nm (10x transmitter bandpass)
 - **Sampling Rate**: 1 ns
 
-## Virtual Scene (Harvard Forest)
+## Virtual Scene
 
-![Harvard Forest Virtual Scene](HFvirtual_scene.png)
+<p align="center">
+  <img src="HFvirtual_scene.png" alt="Harvard forest" />
+  <figcaption>Figure: Harvard forest virtual scene </figcaption>
+</p>
 
 ## About the Data
 
