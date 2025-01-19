@@ -23,7 +23,7 @@ The recorded waveform profiles contains:
 - Time bins (representing range).
 - Signal intensity (number of photons detected).
 
-The specific detail of simulated data is also included in the directory **16ns_profiles**.
+The specific detail of simulated data along with the sample data is also included in the **Data** directory.
 
 ### 2. **Analyzing Real-World Noise Characteristics**
 
