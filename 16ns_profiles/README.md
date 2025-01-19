@@ -21,7 +21,7 @@ This directory contains a simulation of **Airborne Lidar System (ALS)** data usi
 
 <p align="center">
   <img src="HFvirtual_scene.png" alt="Harvard forest" />
-  <figcaption>Figure: Harvard forest virtual scene </figcaption>
+  <p style="text-align: center;"><strong>Figure:</strong> Harvard forest virtual scene</p>
 </p>
 
 ## About the Data
