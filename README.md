@@ -1,6 +1,6 @@
 # Adding Noise to Simulated Waveform LiDAR Data
 
-This article explains how to add realistic noise to the simulated waveform LiDAR data to make it more similar to real-world data. The method incorporates characteristics of actual LVIS (Laser Vegetation Imaging Sensor) data into simulated waveforms to make the data suitable for scientific research and algorithm testing.
+This article explains the proposed method to add realistic noise to the simulated waveform LiDAR data to make it more similar to real-world data. The method incorporates characteristics of actual LVIS (Laser Vegetation Imaging Sensor) data into simulated waveforms to make the data suitable for scientific research and algorithm testing.
 
 ---
 
@@ -28,61 +28,70 @@ The specific detail of simulated data is also included in the directory **16ns_p
 ### 2. **Analyzing Real-World Noise Characteristics**
 
 Noise is a critical factor in real LiDAR data, and understanding its characteristics is essential to accurately simulate it. Using LVIS data, we analyzed and generated the noise distribution and signal peak height distribution. The resources for this task and their detailed explanation is available under directory
-**realdataBioscape_LVIS**. These distributions serve as the foundation for generating realistic noise and signal behavior in the simulated data.
+**realdataBioscape_LVIS** in text files: 
+
+    - `lvis_noise_values.txt` for noise values.
+    - `lvis_peakHeight_values.txt` for peak heights.
+
+These distributions serve as the foundation for generating realistic noise and signal behavior in the simulated data.
 
 ### 3. **Simulated Signal Peak Heights**
 
-The simulated waveforms are examined to calculate their signal peak heights and determine the distribution of peak heights. This is done beacause
-the relationship between signal peaks and noise levels is essential for making sure that the simulated noise is representative of real conditions.
-To account for noise scaling, the simulated peak heights are compared to the LVIS data. This ensures that the simulated waveforms' noise level is 
-proportional to the actual signal strength.
+The simulated waveforms are examined to calculate their signal peak heights and determine the distribution of peak heights. This is done beacause the relationship between signal peaks and noise levels is essential for making sure that the simulated noise is representative of real conditions. To account for noise scaling, the simulated peak heights are compared to the LVIS data. This ensures that the simulated waveforms' noise level is proportional to the actual signal strength.
 
 ### 4. **Adding Realistic Noise to Simulated Waveforms**
 
-This step is the most critical part the process. The simulated waveforms are added with noise in a way that closely resembles the noise properties obtained from actual LVIS data. The mathematical formulation of the process is provided below:
+This step is the most critical part the process. The simulated waveforms are added with noise in a way that closely resembles the noise properties obtained from actual LVIS data. The steps involved are:
 
-#### 4.1 **Noise Representation**
-Let:
-- \( P(t) \): Simulated clean waveform, where \( t \) represents the time bin.
-- \( N(t) \): Noise added to each time bin \( t \), derived from real LVIS data.
-- \( P_\text{noisy}(t) \): Final noisy waveform.
+#### 4.1. Scaling the Simulated Signal
 
-The noisy waveform is calculated as:
-\[
-P_\text{noisy}(t) = P(t) + \alpha \cdot N(t),
-\]
-where:
-- \( \alpha \) is the noise scaling factor, which controls the Signal-to-Noise Ratio (SNR).
+To add noise to the simulated waveforms, we match (approx.) the **signal-to-noise ratio (SNR)** of the simulated data to that of the real data using the distributions of noise and peak heights as:
 
-#### 4.2 **Scaling Factor Calculation**
-The scaling factor \( \alpha \) is determined based on the peak height of the simulated waveform relative to the real noise. Let:
-- \( P_\text{peak} \): Maximum signal intensity (peak height) of the simulated waveform.
-- \( \sigma_N \): Standard deviation of the real noise.
+1. **Simulated Peak Height Distribution**:  
+   We calculate the peak heights for each simulated waveform, resulting in a **simulated peak height distribution**. The peak height is calculated as the difference between the maximum and minimum intensity values in each waveform.
 
-The scaling factor is:
-\[
-\alpha = \frac{P_\text{peak}}{S_\text{target} \cdot \sigma_N},
-\]
-where \( S_\text{target} \) is the target SNR. By controlling \( S_\text{target} \), the user can simulate different noise levels (high SNR for less noise, low SNR for more noise).
+2. **Scaling Factor**:  
+   The scaling factor for noise is calculated by comparing the **simulated peak height distribution** with the **real peak height distribution**. For each time bin in the simulated waveform, we randomly select a value from each of these distributions and calculate a scaling factor as the ratio of the simulated peak height to the real peak height:
+   
+   `Scaling Factor = Simulated Peak Height / Real Peak Height`
 
-#### 4.3 **Noise Distribution**
-The noise \( N(t) \) is generated from a Gaussian distribution:
-\[
-N(t) \sim \mathcal{N}(0, \sigma_N^2),
-\]
-where \( \sigma_N \) is the standard deviation of the noise extracted from real LVIS data.
+   This scaling factor ensures that the noise added to the simulated waveform reflects the signal strength characteristics observed in real data.
 
-#### 4.4 **Final Noisy Waveform**
-The final noisy waveform is obtained by adding scaled noise \( \alpha \cdot N(t) \) to the clean waveform \( P(t) \). This ensures that the noise closely resembles real-world characteristics and is proportional to the simulated signal intensity.
+#### 4.2. Adding Noise to the Simulated Waveform
 
----
+For each time bin in the simulated waveform, noise is added based on the real data’s noise distribution. The noise value is scaled using the previously calculated scaling factor to maintain the proper SNR:
 
-### 5. **Visualizing Noise-Added Waveforms**
-After adding noise, the final step involves visualizing the noisy waveforms. This includes:
-- Comparing clean and noisy waveforms to assess the impact of the noise.
-- Plotting waveforms for different SNR levels to understand how noise affects signal detectability.
+1. **Noise Simulation**:  
+   For each time bin, the noise is calculated as:
 
-The visualization helps validate the realism of the added noise and provides insights into how algorithms might perform under varying noise conditions.
+   `Noise_sim = (Simulated Peak Height / Real Peak Height) * Real Noise`
+
+   where `Real Noise` is sampled randomly from the **real noise distribution**.
+
+2. **Noisy Signal**:  
+   The final noisy waveform is then calculated by adding the scaled noise to the simulated waveform:
+
+   `Noisy Waveform = Simulated Waveform + N * Noise_sim`
+
+   Here, `N` is a scaling factor that controls the overall noise level:
+
+   - **`N = 1`** corresponds to the baseline SNR (matching the SNR of the real data).
+   - **Higher values of `N`** result in a lower SNR, making the signal noisier.
+   - **Lower values of `N`** result in a higher SNR, improving the signal quality.
+
+#### 4.3. Varying the Noise Levels
+
+By adjusting the value of `N`, we generate noisy waveforms with different SNRs. The noise levels are chosen based on the users requirements and are represented as multiples or fractions of the baseline SNR. For example:
+
+- `N = 1` corresponds to the baseline SNR (real data SNR).
+- `N = 0.5` corresponds to double the SNR, resulting in a cleaner signal.
+- `N = 2` corresponds to half the noise, reducing the SNR.
+
+Basically `N` is controlling the width of noise-distribution to be added to the simulated signal.
+
+#### 4.4. Final Noisy Waveform
+
+After applying the noise, the final noisy waveform is obtained and can be used for downstream analysis. By varying the noise level `N`, we can simulate different real-world noise conditions and test the robustness of algorithms designed to process these noisy waveforms.
 
 ---
 
@@ -114,3 +123,7 @@ Adding realistic noise to simulated data is crucial for testing and validating L
 ## Conclusion
 
 This process bridges the gap between idealized simulations and real-world applications by adding realistic noise to simulated waveform LiDAR data. It provides researchers with a powerful tool for developing and testing algorithms in conditions that mimic actual LiDAR system outputs. The use of real LVIS data ensures that the noise characteristics are grounded in reality, making the simulated data suitable for practical use cases.
+
+---
+
+**Note**: To improve the clarity and communication of the technique, Chatgpt AI model was used to produce and revise some of the explanations of procedures in this README file.
