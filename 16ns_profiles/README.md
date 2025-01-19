@@ -19,7 +19,7 @@ This directory contains a simulation of **Airborne Lidar System (ALS)** data usi
 
 ## About the Data
 
-Each profile of the simulated data contains the following columns:
+Each `profile_N` (`N` is number of waveforms/profiles obtained) of the simulated data contains the following columns:
 
 - **Column 0**: The bin number
 - **Column 1**: The time-of-flight for the bin
