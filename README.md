@@ -1,6 +1,6 @@
-# Adding Noise to Simulated Waveform LiDAR Data
+# Adding Noise to Simulated Full-Waveform LiDAR Data
 
-This article explains the proposed method to add realistic noise to the simulated waveform LiDAR data to make it more similar to real-world data. The method incorporates characteristics of actual LVIS (Laser Vegetation Imaging Sensor) data into simulated waveforms to make the data suitable for scientific research and algorithm testing.
+This article explains a method to add realistic noise to the simulated waveform LiDAR data to make it more similar to real-world data. The method incorporates characteristics of actual LVIS (Laser Vegetation Imaging Sensor) data into simulated waveforms to make the data suitable for scientific research and algorithm testing.
 
 ---
 
@@ -16,24 +16,24 @@ The noise-adding process involves multiple steps that combine simulated waveform
 
 ### 1. **Simulated Waveforms**
 
-The first step involves analyzing the simulated waveforms. These simulated waveforms represent the backscattered light intensity after a laser pulse interacts with a simulated environment. The sensor system is custom designed for the simulation and closely resembles with the real waveform lidar systems. We used "DIRSIG" tool which is an abbreviation for "Digital Imaging and Remote Sensing Image Generation", developed at "Digital Remote Sensing Laboratory (DIRS)" at Rochestor Institute of Technology. DIRSIG can be used to simulate multiple modality remote sensing systems like passive multi and hyperspectral systems and active LiDAR and RADAR systems. To learn more please visit: https://dirsig.cis.rit.edu/. 
+The first step involves analyzing the simulated waveforms. These simulated waveforms represent the backscattered light intensity after a laser pulse interacts with a simulated environment. The sensor system is custom designed for the simulation and closely resembles with the real waveform lidar systems. We used "DIRSIG" tool which is an abbreviation for "Digital Imaging and Remote Sensing Image Generation", developed at "Digital Remote Sensing Laboratory (DIRS)" at Rochestor Institute of Technology. DIRSIG can be used to simulate multiple modality remote sensing systems like passive multi and hyperspectral systems and active LiDAR and RADAR systems. To learn more about this tool please visit: https://dirsig.cis.rit.edu/. 
 
 The recorded waveform profiles contains:
 
-- Time bins (representing distance or depth).
-- Signal intensity (proportional to the number of photons detected).
+- Time bins (representing range).
+- Signal intensity (number of photons detected).
 
-The specific detail of simulated data is also included in the directory **16ns_profile**
+The specific detail of simulated data is also included in the directory **16ns_profiles**.
 
 ### 2. **Analyzing Real-World Noise Characteristics**
 
-Noise is a critical factor in real LiDAR data, and understanding its characteristics is essential to accurately simulate it. Using LVIS data, we analyzed and generated the noise distribution and signal peak height distribution. The resources for this task and their detailed explanation is available under directory
-**realdataBioscape_LVIS** in text files: 
+Noise is a critical factor in LiDAR data, and understanding its characteristics is essential to accurately simulate it. Using LVIS data, we analyzed and generated the noise distribution and signal peak height distribution. The resources for this task and their detailed explanation is available under directory
+**realdataBioscape_LVIS**. The generated noise and peak height distributions are stored as text files: 
 
     - `lvis_noise_values.txt` for noise values.
     - `lvis_peakHeight_values.txt` for peak heights.
 
-These distributions serve as the foundation for generating realistic noise and signal behavior in the simulated data.
+These distributions serve as the basis for generating realistic noise and signal behavior in the simulated data.
 
 ### 3. **Simulated Signal Peak Heights**
 
@@ -85,7 +85,7 @@ By adjusting the value of `N`, we generate noisy waveforms with different SNRs. 
 
 - `N = 1` corresponds to the baseline SNR (real data SNR).
 - `N = 0.5` corresponds to double the SNR, resulting in a cleaner signal.
-- `N = 2` corresponds to half the noise, reducing the SNR.
+- `N = 2` corresponds to double the noise, reducing the SNR.
 
 Basically `N` is controlling the width of noise-distribution to be added to the simulated signal.
 
