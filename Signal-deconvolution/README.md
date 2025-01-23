@@ -6,7 +6,7 @@ This section focuses on deconvolution of waveform LiDAR data to recover the true
 
 ## Overview
 
-In a typical LiDAR system, the recorded waveform `$$P_t$$` is a convolution of the true backscattering profile `$$P_\delta(t)$$` and the system's response function `$$R_t$$`, which represents the system's characteristics such as the laser pulse shape and detector response. The objective of the deconvolution process is to recover `$$P_\delta(t)$$` from `$$P_t$$`, thereby removing the influence of `$$R_t$$`.
+In a typical LiDAR system, the recorded waveform $$P_t$$ is a convolution of the true backscattering profile $$P_\delta(t)$$ and the system's response function $$R_t$$, which represents the system's characteristics such as the laser pulse shape and detector response. The objective of the deconvolution process is to recover $$P_\delta(t)$$ from $$P_t$$, thereby removing the influence of $$R_t$$.
 
 Mathematically, the relationship between the recorded waveform and the true backscattering profile is expressed as:
 
@@ -32,12 +32,12 @@ The goal of deconvolution is to estimate $$P_\delta(t)$$ given $$P_t$$ and $$R_t
 
 The **Richardson-Lucy deconvolution** is an iterative algorithm based on the principle of maximum likelihood estimation. The key steps are as follows:
 
-1. **Initialize** the deconvolved signal `$`P_\delta(t)`$` with a flat guess, typically an array of ones.
+1. **Initialize** the deconvolved signal $`P_\delta(t)`$ with a flat guess, typically an array of ones.
 2. **Iterate** for a specified number of iterations:
-    - Convolve the current estimate of the deconvolved signal $`P_\delta(t)^i`$ with the system response `$`R_t`$` .
-    - Compute the ratio of the recorded waveform to the convolved signal:`$$\frac{P_t}{R_t * P_\delta(t)}$$ `.
-    - Convolve this ratio with the flipped system response `$$R_t$$` to update the deconvolved signal.
-3. **Boosting**: After each iteration, apply a boosting factor `$$\beta$$` to enhance the signal, adjusting the shape of the deconvolved waveform.
+    - Convolve the current estimate of the deconvolved signal $`P_\delta(t)^i`$ with the system response $`R_t`$ .
+    - Compute the ratio of the recorded waveform to the convolved signal:` $$\frac{P_t}{R_t * P_\delta(t)}$$.
+    - Convolve this ratio with the flipped system response $$R_t$$ to update the deconvolved signal.
+3. **Boosting**: After each iteration, apply a boosting factor $$\beta$$ to enhance the signal, adjusting the shape of the deconvolved waveform.
 4. **Positivity constraint**: Enforce that the deconvolved signal cannot have negative values by taking the maximum of the current estimate and zero.
 5. **Energy scaling**: Post-process the result by scaling the deconvolved signal to match the energy of the original recorded waveform.
 6. **Cross-correlation**: Perform cross-correlation to estimate the shift between the recorded waveform and the deconvolved result, and apply a manual shift to align the two signals.
