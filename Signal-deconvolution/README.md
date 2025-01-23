@@ -43,9 +43,9 @@ The **Richardson-Lucy deconvolution** is an iterative algorithm based on the pri
 
 The Richardson-Lucy algorithm can be expressed iteratively as:
 
-\[
+$$
 P_\delta(t)^{(i+1)} = P_\delta(t)^i \cdot \left( \frac{P_t}{(R_t * P_\delta(t)^i)} * R_t^\text{flip} \right)
-\]
+$$
 
 where:
 - \( P_\delta(t)^i \) is the estimate of the deconvolved signal at iteration \( i \),
