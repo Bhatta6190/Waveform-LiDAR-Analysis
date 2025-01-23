@@ -1,6 +1,6 @@
 # Deconvolution of LiDAR Waveforms Using Richardson-Lucy and Gold Algorithms
 
-This section focuses on deconvolution of waveform LiDAR data to recover the true backscattering profile by removing the system response contribution from the recorded waveform lidar data. The two key deconvolution algorithms used are **Richardson-Lucy** and **Gold** algorithms, both augmented with a **boosting** to enhance the deconvolution performance. The process iterates over several repetitions, applying boosting to improve the results.
+This section focuses on deconvolution of waveform LiDAR data to recover the true backscattering profile by removing the system response contribution from the recorded waveform lidar data. The two key deconvolution algorithms used are **Richardson-Lucy** and **Gold** algorithms, both augmented with a **boosting** to enhance the deconvolution performance. The process iterates over several repetitions, applying boosting to improve the results. 
 
 ---
 
@@ -55,7 +55,7 @@ where:
 
 ---
 
-### 2. Gold Algorithm (Toeplitz Matrix Method)
+### 2. Gold Algorithm
 
 The **Gold deconvolution** algorithm involves constructing a Toeplitz matrix from the system response function and solving a linear system of equations. The process is as follows:
 
@@ -92,7 +92,7 @@ $$
 
 where $$\beta$$ is the boosting coefficient and $$P_\delta$$ is the deconvolved signal.
 
-The process is repeated after `n` **iterations** and for each **repetitions** to allow for boosting to have a greater effect over multiple cycles. For example if i define `num_iter = 500` and `num_rep = 5`, it means i am running 500 iterations 5 times and after each 500 iteration (or a repetition) i boost the signal by raising it to certain power i.e. `boosting factor` or `boosting coefficient`. This makes algorithms to converge faster to their optimal solution, however care must be taken while applying boosting to noisy signal as noise also gets boosted along with the signal. For more information refer to the sources mentioned in the **References** section.
+The process is repeated after `n` **iterations** and for each **repetitions** to allow for boosting to have a greater effect over multiple cycles. For example if i define `num_iter = 500` and `num_rep = 5`, it means i am running 500 iterations 5 times and after each 500 iteration (or a repetition) i boost the signal by raising it to certain power i.e. `boosting factor` or `boosting coefficient`. This makes algorithms to converge faster to their optimal solution, however care must be taken while applying boosting to noisy signal as noise also gets boosted along with the signal. 
 
 ---
 
@@ -115,7 +115,7 @@ The shift is the index where the correlation is maximized, and the deconvolved s
 By applying the Richardson-Lucy and Gold deconvolution algorithms with boosting, the true backscattering profile can be recovered from the observed LiDAR waveform. The combination of iterative deconvolution, boosting, and alignment correction allows for more accurate recovery of the original signal, even in the presence of noise and system contributions.
 
 These algorithms can be applied to various LiDAR datasets to study vegetation structure and other remote sensing applications where waveform data is available.
-
+**Note:** For detailed information on methods mentioned above users are referred to the **References** added below.
 ---
 
 ## References
