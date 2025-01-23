@@ -59,38 +59,38 @@ where:
 
 The **Gold deconvolution** algorithm involves constructing a Toeplitz matrix from the system response function and solving a linear system of equations. The process is as follows:
 
-1. **Construct the Toeplitz matrix** \( H \) from the system response function \( R_t \). This matrix represents the convolution operation.
-2. **Compute the observation vector** \( y' = H^T y \), where \( y \) is the observed waveform.
-3. **Solve the linear system** \( H^T H P_\delta = y' \) to update the estimate of the deconvolved signal \( P_\delta \).
-4. **Boosting**: Similar to the Richardson-Lucy algorithm, apply a boosting factor \( \beta \) after each repetition to modify the deconvolved signal.
+1. **Construct the Toeplitz matrix** $$H$$ from the system response function $$R_t$$. This matrix represents the convolution operation.
+2. **Compute the observation vector** $$y' = H^T y$$, where $$y$$ is the observed waveform.
+3. **Solve the linear system** $$H^T H P_\delta = y'$$ to update the estimate of the deconvolved signal $$P_\delta$$.
+4. **Boosting**: Similar to the Richardson-Lucy algorithm, apply a boosting factor $$\beta$$ after each repetition to modify the deconvolved signal.
 5. **Positivity constraint**: Enforce positivity on the deconvolved signal after each iteration by taking the maximum of the current estimate and zero.
 6. **Energy scaling**: Post-process the result by scaling the deconvolved signal to match the energy of the original recorded waveform.
 7. **Cross-correlation**: Perform cross-correlation to estimate the shift between the recorded waveform and the deconvolved result, and apply a manual shift to align the two signals.
 
 Mathematically, the Gold deconvolution can be written as:
 
-\[
+$$
 P_\delta = (H^T H)^{-1} H^T y
-\]
+$$
 
 where:
-- \( P_\delta \) is the deconvolved signal,
-- \( H \) is the Toeplitz matrix constructed from the system response,
-- \( y \) is the observed waveform.
+- $$P_\delta$$ is the deconvolved signal,
+- $$H$$ is the Toeplitz matrix constructed from the system response,
+- $$y$$ is the observed waveform.
 
 ---
 
 ## Boosting and Repetitions
 
-Both the Richardson-Lucy and Gold algorithms are enhanced with a **boosting factor** \( \beta \). Boosting involves raising the deconvolved signal to a power of \( \beta \), which amplifies the signal, especially in regions where the true profile has small variations. This helps refine the recovered signal after several iterations and repetitions.
+Both the Richardson-Lucy and Gold algorithms are enhanced with a **boosting factor** $$\beta$$. Boosting involves raising the deconvolved signal to a power of $$\beta$$, which amplifies the signal, especially in regions where the true profile has small variations. This helps refine the recovered signal after several iterations and repetitions.
 
 Boosting is applied as follows:
 
-\[
+$$
 P_\delta \leftarrow P_\delta^\beta
-\]
+$$
 
-where \( \beta \) is the boosting coefficient and \( P_\delta \) is the deconvolved signal.
+where $$\beta$$ is the boosting coefficient and $$P_\delta$$ is the deconvolved signal.
 
 The process is repeated for a number of **iterations** to refine the deconvolution and for **repetitions** to allow for boosting to have a greater effect over multiple cycles.
 
