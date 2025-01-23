@@ -112,10 +112,10 @@ The shift is the index where the correlation is maximized, and the deconvolved s
 
 ## Conclusion
 
-By applying the Richardson-Lucy and Gold deconvolution algorithms with boosting, the true backscattering profile can be recovered from the observed LiDAR waveform. The combination of iterative deconvolution, boosting, and alignment correction allows for more accurate recovery of the original signal, even in the presence of noise and system contributions.
+By applying the Richardson-Lucy and Gold deconvolution algorithms with boosting, the true backscattering profile can be recovered from the observed LiDAR waveform. The combination of iterative deconvolution, boosting, and alignment correction allows for more accurate recovery of the original signal, even in the presence of noise and system contributions. These algorithms can be applied to various LiDAR datasets to study vegetation structure and other remote sensing applications where waveform data is available.
 
-These algorithms can be applied to various LiDAR datasets to study vegetation structure and other remote sensing applications where waveform data is available.
 **Note:** For detailed information on methods mentioned above users are referred to the **References** added below.
+
 ---
 
 ## References
@@ -139,3 +139,5 @@ These algorithms can be applied to various LiDAR datasets to study vegetation st
     ISSN 0924-2716,
     https://doi.org/10.1016/j.isprsjprs.2008.09.007.
     (https://www.sciencedirect.com/science/article/pii/S0924271608000993)
+
+---
