@@ -6,6 +6,11 @@ This section focuses on deconvolution of waveform LiDAR data to recover the true
 
 ## Overview
 
+<p align="left">
+  <img src="Hancock_et_al_2017.png" alt="Signal Deconvolution" />
+  <p style="text-align: center;"><strong>Figure:</strong> Illustration of ALS waveform composition, with the true target profile (red line) compared to the measured waveform (black line) (Source: Hancock et al. (2017))</p>
+</p>
+
 In a typical LiDAR system, the recorded waveform $$P_t$$ is a convolution of the true backscattering profile $$P_\delta(t)$$ and the system's response function $$R_t$$, which represents the system's characteristics such as the laser pulse shape and detector response. The objective of the deconvolution process is to recover $$P_\delta(t)$$ from $$P_t$$, thereby removing the influence of $$R_t$$.
 
 Mathematically, the relationship between the recorded waveform and the true backscattering profile is expressed as:
