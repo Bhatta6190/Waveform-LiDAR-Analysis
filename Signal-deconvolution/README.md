@@ -1,6 +1,6 @@
 # Deconvolution of LiDAR Waveforms Using Richardson-Lucy and Gold Algorithms
 
-This tool focuses on deconvolving waveform LiDAR data to recover the true backscattering profile by removing the system response contribution. The two key deconvolution algorithms used are **Richardson-Lucy** and **Gold** algorithms, both augmented with a **boosting factor** to enhance the deconvolution performance. The process iterates over several repetitions, applying boosting to improve the results. Below is an explanation of the methodology, mathematical models, and steps involved.
+This tool focuses on deconvolving waveform LiDAR data to recover the true backscattering profile by removing the system response contribution to the recorded waveform lidar data. The two key deconvolution algorithms used are **Richardson-Lucy** and **Gold** algorithms, both augmented with a **boosting factor** to enhance the deconvolution performance. The process iterates over several repetitions, applying boosting to improve the results. Below is an explanation of the methodology, mathematical models, and steps involved.
 
 ---
 
@@ -15,9 +15,9 @@ P_t = f_t * R_t + n_t
 \]
 
 where:
-- \( P_t \) is the observed LiDAR waveform (1D array of photon counts),
-- \( f_t \) is the true backscattering profile (1D array of photon counts),
-- \( R_t \) is the system response function (1D array),
+- \( P_t \) is the observed LiDAR waveform ,
+- \( f_t \) is the true backscattering profile ,
+- \( R_t \) is the system response function ,
 - \( * \) denotes the convolution operator,
 - \( n_t \) represents noise in the recorded waveform.
 
@@ -119,6 +119,14 @@ These algorithms can be applied to various LiDAR datasets to study vegetation st
 
 ## References
 
-- Richardson, W. H. (1972). "Bayesian-based iterative method of image restoration". *Journal of the Optical Society of America*, 62(1), 55–59.
-- Lucy, L. B. (1974). "An iterative technique for the rectification of observed distributions". *The Astronomical Journal*, 79, 745–754.
-- Gold, R. (1966). "On the solution of Toeplitz systems and the fast convolution of sequences". *Journal of Computational and Applied Mathematics*, 10(3), 299-318.
+M. Morháč,
+Deconvolution methods and their applications in the analysis of γ-ray spectra,
+Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment,
+Volume 559, Issue 1,
+2006,
+Pages 119-123,
+ISSN 0168-9002,
+https://doi.org/10.1016/j.nima.2005.11.129.
+(https://www.sciencedirect.com/science/article/pii/S0168900205022527)
+Abstract: The efficient deconvolution algorithms are presented. Besides standard methods, newly developed deconvolution algorithms have been described. The properties and capabilities of deconvolution algorithms are studied.
+Keywords: Ill-posed problem; Decomposition; Regularization; Resolution in γ-ray spectra
