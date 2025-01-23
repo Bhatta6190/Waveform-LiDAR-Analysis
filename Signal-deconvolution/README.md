@@ -48,9 +48,9 @@ P_\delta(t)^{(i+1)} = P_\delta(t)^i \cdot \left( \frac{P_t}{(R_t * P_\delta(t)^i
 $$
 
 where:
-- $$ P_\delta(t)^i $$ is the estimate of the deconvolved signal at iteration $$ i $$,
-- $$ * $$ denotes convolution,
-- $$ R_t^\text{flip} $$ is the flipped system response.
+- `P_\delta(t)^i` is the estimate of the deconvolved signal at iteration `i`
+- `*` denotes convolution
+- `R_t^\text{flip}` is the flipped system response
 
 ---
 
