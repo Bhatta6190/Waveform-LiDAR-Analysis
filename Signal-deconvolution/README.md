@@ -101,9 +101,9 @@ After the deconvolution process, the deconvolved signal may need to be aligned w
 
 The cross-correlation is computed as:
 
-\[
+$$
 \text{corr}(P_t, P_\delta) = \sum_{t} P_t(t) \cdot P_\delta(t)
-\]
+$$
 
 The shift is the index where the correlation is maximized, and the deconvolved signal is shifted accordingly.
 
