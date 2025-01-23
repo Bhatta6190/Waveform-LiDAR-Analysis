@@ -1,12 +1,12 @@
 # Deconvolution of LiDAR Waveforms Using Richardson-Lucy and Gold Algorithms
 
-This tool focuses on deconvolving waveform LiDAR data to recover the true backscattering profile by removing the system response contribution to the recorded waveform lidar data. The two key deconvolution algorithms used are **Richardson-Lucy** and **Gold** algorithms, both augmented with a **boosting factor** to enhance the deconvolution performance. The process iterates over several repetitions, applying boosting to improve the results. Below is an explanation of the methodology, mathematical models, and steps involved.
+This section focuses on deconvolution of waveform LiDAR data to recover the true backscattering profile by removing the system response contribution from the recorded waveform lidar data. The two key deconvolution algorithms used are **Richardson-Lucy** and **Gold** algorithms, both augmented with a **boosting** to enhance the deconvolution performance. The process iterates over several repetitions, applying boosting to improve the results. Below is an explanation of the methodology, mathematical models, and steps involved.
 
 ---
 
 ## Overview
 
-In a typical LiDAR system, the recorded waveform (\( P_t \)) is a convolution of the true backscattering profile (\( f_t \)) and the system's response function (\( R_t \)), which represents the system's characteristics such as the laser pulse shape and detector response. The objective of the deconvolution process is to recover \( f_t \) from \( P_t \), thereby removing the influence of \( R_t \).
+In a typical LiDAR system, the recorded waveform \( P_t \) is a convolution of the true backscattering profile \( f_t \) and the system's response function \( R_t \), which represents the system's characteristics such as the laser pulse shape and detector response. The objective of the deconvolution process is to recover \( f_t \) from \( P_t \), thereby removing the influence of \( R_t \).
 
 Mathematically, the relationship between the recorded waveform and the true backscattering profile is expressed as:
 
