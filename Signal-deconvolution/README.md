@@ -6,22 +6,23 @@ This section focuses on deconvolution of waveform LiDAR data to recover the true
 
 ## Overview
 
-In a typical LiDAR system, the recorded waveform \( P_t \) is a convolution of the true backscattering profile \( f_t \) and the system's response function \( R_t \), which represents the system's characteristics such as the laser pulse shape and detector response. The objective of the deconvolution process is to recover \( f_t \) from \( P_t \), thereby removing the influence of \( R_t \).
+In a typical LiDAR system, the recorded waveform $$P_t$$ is a convolution of the true backscattering profile $$P_\delta(t)$$ and the system's response function $$R_t$$, which represents the system's characteristics such as the laser pulse shape and detector response. The objective of the deconvolution process is to recover $$P_\delta(t)$$ from $$P_t$$, thereby removing the influence of $$R_t$$.
 
 Mathematically, the relationship between the recorded waveform and the true backscattering profile is expressed as:
 
-\[
-P_t = f_t * R_t + n_t
-\]
+$$
+P_t = P_\delta(t) * R_t + n_t
+$$
 
 where:
-- \( P_t \) is the observed LiDAR waveform ,
-- \( f_t \) is the true backscattering profile ,
-- \( R_t \) is the system response function ,
-- \( * \) denotes the convolution operator,
-- \( n_t \) represents noise in the recorded waveform.
+- $$P_t$$ is the observed LiDAR waveform,
+- $$P_\delta(t)$$ is the true backscattering profile,
+- $$R_t$$ is the system response function,
+- $$*$$ denotes the convolution operator,
+- $$n_t$$ represents noise in the recorded waveform.
 
-The goal of deconvolution is to estimate \( f_t \) given \( P_t \) and \( R_t \).
+The goal of deconvolution is to estimate $$P_\delta(t)$$ given $$P_t$$ and $$R_t$$.
+
 
 ---
 
