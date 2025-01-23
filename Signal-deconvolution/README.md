@@ -1,4 +1,4 @@
-# README: Deconvolution of LiDAR Waveforms Using Richardson-Lucy and Gold Algorithms
+# Deconvolution of LiDAR Waveforms Using Richardson-Lucy and Gold Algorithms
 
 This tool focuses on deconvolving waveform LiDAR data to recover the true backscattering profile by removing the system response contribution. The two key deconvolution algorithms used are **Richardson-Lucy** and **Gold** algorithms, both augmented with a **boosting factor** to enhance the deconvolution performance. The process iterates over several repetitions, applying boosting to improve the results. Below is an explanation of the methodology, mathematical models, and steps involved.
 
