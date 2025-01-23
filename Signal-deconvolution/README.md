@@ -7,7 +7,7 @@ This section focuses on deconvolution of waveform LiDAR data to recover the true
 ## Overview
 
 <p align="left">
-  <img src="Hancock_et_al_2017.png" alt="Signal Deconvolution" width="500" height="500"/>
+  <img src="Hancock_et_al_2017.png" alt="Signal Deconvolution" width="75%" height="75%"/>
   <p style="text-align: center;"><strong>Figure:</strong> Illustration of ALS waveform composition, with the true target profile (red line) compared to the measured waveform (black line) (Source: Hancock et al. (2017))</p>
 </p>
 
