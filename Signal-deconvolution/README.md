@@ -119,14 +119,22 @@ These algorithms can be applied to various LiDAR datasets to study vegetation st
 
 ## References
 
-M. Morháč,
-Deconvolution methods and their applications in the analysis of γ-ray spectra,
-Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment,
-Volume 559, Issue 1,
-2006,
-Pages 119-123,
-ISSN 0168-9002,
-https://doi.org/10.1016/j.nima.2005.11.129.
-(https://www.sciencedirect.com/science/article/pii/S0168900205022527)
-Abstract: The efficient deconvolution algorithms are presented. Besides standard methods, newly developed deconvolution algorithms have been described. The properties and capabilities of deconvolution algorithms are studied.
-Keywords: Ill-posed problem; Decomposition; Regularization; Resolution in γ-ray spectra
+-   M. Morháč,
+    Deconvolution methods and their applications in the analysis of γ-ray spectra,
+    Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment,
+    Volume 559, Issue 1,
+    2006,
+    Pages 119-123,
+    ISSN 0168-9002,
+    https://doi.org/10.1016/j.nima.2005.11.129.
+    (https://www.sciencedirect.com/science/article/pii/S0168900205022527)
+
+-   Clément Mallet, Frédéric Bretar,
+    Full-waveform topographic lidar: State-of-the-art,
+    ISPRS Journal of Photogrammetry and Remote Sensing,
+    Volume 64, Issue 1,
+    2009,
+    Pages 1-16,
+    ISSN 0924-2716,
+    https://doi.org/10.1016/j.isprsjprs.2008.09.007.
+    (https://www.sciencedirect.com/science/article/pii/S0924271608000993)
