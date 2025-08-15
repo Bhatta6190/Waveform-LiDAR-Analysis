@@ -46,9 +46,7 @@ This repository hosts tools and resources for analyzing full waveform lidar data
     - `LE` – Lorentz entropy (waveform complexity)
 
 
-
-
-Future updates will include additional modules for data processing and trait modeling.  
+Future updates will include additional modules for data processing and structure modeling.  
 We welcome suggestions and contributions to improve the repository.  
 
 **Contact**: [rb1005@rit.edu](mailto:rb1005@rit.edu) for potential collaborations.
