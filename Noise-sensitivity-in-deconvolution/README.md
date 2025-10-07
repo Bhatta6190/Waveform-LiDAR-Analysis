@@ -1,7 +1,6 @@
 # 📘 Waveform LiDAR Signal Deconvolution Analysis
 
-This repository contains the results and visualizations from a series of experiments analyzing **noise sensitivity in waveform LiDAR signal deconvolution**.  
-The primary goal is to determine the effects of noise for different deconvolution algorithms under varying noise and system response conditions.
+This repository contains the results and visualizations from a series of experiments analyzing **noise sensitivity in waveform LiDAR signal deconvolution**. The primary goal is to determine the effects of noise for different deconvolution algorithms under varying noise and system response conditions.
 
 ---
 
