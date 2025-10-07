@@ -5,6 +5,7 @@ This repository hosts tools and resources for analyzing full waveform lidar data
 ### Current Resources:
 - **`Noise-addition-to-simdata`**: Tools for adding realistic noise to simulated full-waveform lidar data.
 - **`Signal-deconvolution`**: Tools for correcting for the system response in full-waveform lidar data.
+- **`Noise-sensitivity-in-deconvolution`**: Experiments to see how noise effects the deconvolution process.
 - **`Lidar_scan_setting.ipynb`**: Python notebook file for determining parameters required for DIRSIG based waveform lidar simulation.
 - **`wlidar_metrics_calculation.ipynb`**: Python notebook file for calculating full-waveform lidar metrics, including:
 
