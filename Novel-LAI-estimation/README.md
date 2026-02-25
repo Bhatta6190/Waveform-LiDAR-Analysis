@@ -8,11 +8,9 @@
 **Study Site:** Harvard Forest (HEM & LPH Towers), Massachusetts  
 **Aim:** Testing a novel LAI estimation model from airborne waveform LiDAR using real Harvard Forest data  
 **Methods:** Polar-to-Cartesian Coordinate Conversion + Spatial Matching + Model Implementation + Performance Analysis  
-
 **Paper:** Refer to Bhatta et al. (2025) for detailed theory on simulation-based model development and implementation.  
-Notebook implementation: [`Analysis_file.ipynb`](Analysis_file.ipynb)  
-
-DOI: [10.1109/JSTARS.2026.3652921](https://doi.org/10.1109/JSTARS.2026.3652921)
+Notebook implementation: [`Analysis_file.ipynb`] 
+Paper DOI: [10.1109/JSTARS.2026.3652921](https://doi.org/10.1109/JSTARS.2026.3652921)
 
 <p align="center">
   <img src="./hemlock_sites.png" width="900">
@@ -24,26 +22,24 @@ DOI: [10.1109/JSTARS.2026.3652921](https://doi.org/10.1109/JSTARS.2026.3652921)
 
 ### IMPORTANT FILES
 
-- To understand how the data were pre-processed and geolocated/temporally aligned LVIS waveform-LAI pair were obtained and the LAI model was implemented, kindly refer to the following files:
-    - `README.md` file: This file, for viewing the detailed report. 
-    - `HF150_geolocator.py` file: This python file converts the raw "HEM"/"LPH" LAI data into geolocated data and generated geolocated files and visuals maps.
-        - Input File(s): `hf150-01-hem-lai.csv` (Added here and similar for LPH as well.)
-        - Main Output File: `hf150_geolocated_hem_lai.csv` (Added here)
-    - `LVIS_FILTERING_SUMMER_MONTHS.py` file: Converts geolocated HF150 LAI data from 2. and matches with the nearest waveforms 
-        to produce summary data files. Run this to extract major structural summary (such as rh100, total_energy...) corresponding to each site in csv format. 
-        Other required metrics can also be added by updating the code.
+- To understand how the data were preprocessed and how geolocated/temporally aligned LVIS waveform–LAI pairs were obtained, and how the LAI model was implemented, kindly refer to the following files:
+    - [`README.md`](README.md) file: This file provides the detailed report. 
+    - [`HF150_geolocator.py`](HF150_geolocator.py) file: This Python file converts the raw "HEM"/"LPH" LAI data into geolocated data and generates geolocated files and visual maps.
+        - Input File(s): `hf150-01-hem-lai.csv` (added here; similar file required for LPH as well.)
+        - Main Output File: `hf150_geolocated_hem_lai.csv` (added here)
+    - [`LVIS_FILTERING_SUMMER_MONTHS.py`](LVIS_FILTERING_SUMMER_MONTHS.py) file: Converts geolocated HF150 LAI data from Step 2 and matches them with the nearest waveforms to produce summary data files. Run this to extract major structural summaries (such as `rh100`, `total_energy`, etc.) corresponding to each site in CSV format. Other required metrics can also be added by updating the code.
         - Input Files:   
-            - LVIS waveforms: `LVISC1B_GEDI2021_0806_R2112_049718.h5` and `LVISC1B_GEDI2021_0806_R2112_051257.h5` (Not added here, download from NASA LVIS website.)
+            - LVIS waveforms: `LVISC1B_GEDI2021_0806_R2112_049718.h5` and `LVISC1B_GEDI2021_0806_R2112_051257.h5` (not added here; download from the NASA LVIS website.)
             - Geolocated LAI data: `hf150_geolocated_hem_lai.csv` 
-        - Main Output File: `lvis_waveform_metrics_filtered_hem.csv` (Added here)
-    - `LVIS_FULL_WAVEFORMS_ALL_ATTRIBUTES.py` file: Similar to 3, but also saves whole raw waveform along with associated LAI values for modeling.
+        - Main Output File: `lvis_waveform_metrics_filtered_hem.csv` (added here)
+    - [`LVIS_FULL_WAVEFORMS_ALL_ATTRIBUTES.py`](LVIS_FULL_WAVEFORMS_ALL_ATTRIBUTES.py) file: Similar to 3, but also saves the full raw waveform along with associated LAI values for modeling.
         - Input Files:    
-                - LVIS waveforms: `LVISC1B_GEDI2021_0806_R2112_049718.h5` and `LVISC1B_GEDI2021_0806_R2112_051257.h5` (Not added here, get from NASA LVIS website.)
+                - LVIS waveforms: `LVISC1B_GEDI2021_0806_R2112_049718.h5` and `LVISC1B_GEDI2021_0806_R2112_051257.h5` (not added here; download from the NASA LVIS website.)
                 - Geolocated LAI data: `hf150_geolocated_hem_lai.csv`
-        - Main Output File: `lvis_waveforms_hem.pkl` (Added here)
-    - `Analysis_file.ipynb`: This python notebook tests the performance of the Novel LAI estimation model (Bhatta et al.(2025)), modeled using simulated data, on the real LVIS waveforms and ground LAI-truth data from "Hemlock Sites" in Harvard Forest. This code also tests the performance of the model on "Deconvolved" waveforms data which is used to remove system contribution from raw waveform LiDAR and provide better structural representation of the underlying vegetation structure.
+        - Main Output File: `lvis_waveforms_hem.pkl` (added here)
+    - [`Analysis_file.ipynb`](Analysis_file.ipynb): This Python notebook tests the performance of the novel LAI estimation model (Bhatta et al., 2025), developed using simulated data, on real LVIS waveforms and ground LAI measurements from "Hemlock Sites" in Harvard Forest. This code also tests the performance of the model on "deconvolved" waveform data, which removes system contributions from raw waveform LiDAR and provides a better structural representation of the underlying vegetation.
         - Input File(s): `lvis_waveforms_hem.pkl`
-        - Main Outputs: `Model perfomance: see the notebook file.`
+        - Main Outputs: Model performance results (see the notebook file).
 
 *Note: Even though our analysis is based on HEM sites only, this workflow can be run for both HEMLOCK (HEM) and Little Prospect Hill (LPH) sites. For original data from both sites (HEM and LPH) kindly refer to Harvard Forest Data Archive, Ref. [5]* 
 
