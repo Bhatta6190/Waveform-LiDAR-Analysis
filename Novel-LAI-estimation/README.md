@@ -9,7 +9,7 @@
 **Aim:** Testing a novel LAI estimation model from airborne waveform LiDAR using real Harvard Forest data  
 **Methods:** Polar-to-Cartesian Coordinate Conversion + Spatial Matching + Model Implementation + Performance Analysis  
 **Paper:** Refer to Bhatta et al. (2025) for detailed theory on simulation-based model development and implementation.  
-Notebook implementation: [`Analysis_file.ipynb`] 
+Notebook implementation: [`Analysis_file.ipynb`](Analysis_file.ipynb)     
 Paper DOI: [10.1109/JSTARS.2026.3652921](https://doi.org/10.1109/JSTARS.2026.3652921)
 
 <p align="center">
