@@ -450,7 +450,6 @@ Novel-LAI-estimation/
     ├── README.md          # This file
     
 ```
-*Note: Run for both sites to generate individual result files.*
 ---
 
 ## REFERENCES
