@@ -1,10 +1,16 @@
 ## HF150 Geolocation & LVIS Waveform Extraction Workflow
 
-**Date:** Feb 25, 2026
-**Study Site:** Harvard Forest (HEM & LPH Towers), Massachusetts  
-**Project:** LAI Estimation from Airborne Waveform LiDAR + Ground Truth  
-**Methods:** Polar-to-Cartesian Coordinate Conversion + Spatial Matching    
+**Date:** Feb 25, 2026   
+**Study Site:** Harvard Forest (HEM & LPH Towers), Massachusetts      
+**Project:** LAI Estimation from Airborne Waveform LiDAR + Ground Truth     
+**Methods:** Polar-to-Cartesian Coordinate Conversion + Spatial Matching       
 **Paper:** Refer to Bhatta et al. (2025) for detailed theory on implementaion and refer to `Analysis_file.ipynb` for python implementation.
+
+<p align="center">
+  <img src="./hemlock_sites.png" width="700">
+</p>
+
+*Figure 1. Map showing the research towers and study sites within Harvard Forest. For our validation task, we used summer 2021 data from the Hemlock (HEM) plots, which host an eddy covariance tower in an eastern hemlock forest (see Hadley and Schedlbauer, 2002).*
 
 ---
 
@@ -21,6 +27,7 @@
 
 *Note: Even though our analysis is based on HEM sites only, this workflow can be run for both HEMLOCK (HEM) and Little Prospect Hill (LPH) sites. For original data from both sites (HEM and LPH) kindly refer to Harvard Forest Data Archive, Ref. [5]* 
 
+---
 ## PART 1: HF150 GROUND TRUTH LAI GEOLOCATION MAPPING (HEM & LPH)
 
 ### 1.1 Overview
