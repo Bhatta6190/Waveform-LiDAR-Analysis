@@ -353,11 +353,6 @@ ground_energy = np.sum(waveform[split_idx:])
 | NetCDF | ~120 KB | Scientific tools (xarray) | Fast (binary) |
 | JSON | ~5 KB | Metadata reference | Medium (text) |
 
-**Recommended for Shi et al. Analysis:**
-- Use **HDF5** for production storage + analysis
-- Use **Pickle** for interactive Python workflows
-- Use **CSV** for QA/verification
-
 ### 2.8 Data Quality & Validation
 
 #### Spatial Validation
@@ -372,20 +367,19 @@ lai_range = (lai_filtered['latitude'].min(), lai_filtered['latitude'].max())
 overlap = (lat_range[1] >= lai_range[0]) and (lat_range[0] <= lai_range[1])
 ```
 
-**Result:** ✓ Complete spatial overlap; all LAI points have LVIS coverage
+**Result:** Complete spatial overlap; all LAI points have LVIS coverage
 
 #### Temporal Validation
 
 ```python
 # Verify year/month consistency
 lai_dates = lai_filtered['date']
-dates_2021 = (lai_dates.dt.year == 2021).all()  # ✓ True
-dates_summer = lai_dates.dt.month.isin([7,8,9]).all()  # ✓ True
+dates_2021 = (lai_dates.dt.year == 2021).all()  # True
+dates_summer = lai_dates.dt.month.isin([7,8,9]).all()  # True
 ```
+**Result:** All data from 2021 summer only; no year mixing
 
-**Result:** ✓ All data from 2021 summer only; no year mixing
-
-#### Spectral Validation
+#### Waveform Validation
 
 ```python
 # Waveform quality checks
@@ -416,11 +410,7 @@ for wf in waveforms:
 **LVIS Shot Uncertainty:**
 - Footprint diameter: ~25 m (at 2000 m altitude)
 - Geolocation accuracy: ±2-3 m (GPS/IMU)
-- **Result:** LAI plot (2 m) << LVIS footprint (25 m)
-
-**Matching Uncertainty:**
-- Mean LAI-LVIS separation: 6 m (well within footprint)
-- Implication: Each LVIS shot captures aggregate response from ~5-10 LAI plots
+- **Result:** LAI plot (6 m) << LVIS footprint (25 m)
 
 #### Temporal Uncertainty
 
@@ -435,13 +425,13 @@ for wf in waveforms:
 
 ### 3.1 Dataset Summary
 
-**Final Matched Dataset:**
+**Final Dataset:**
 - Location: HEM (Hemlock Tower)
 - Matched pairs: 11
 - LAI range: [min-max] m²/m² (requires actual data)
 - Distance range: 0.002-0.011 km
 - Temporal span: July-September 2021
-- Files created: HDF5, CSV, Pickle, NetCDF, JSON
+- Files: HDF5, CSV, Pickle, NetCDF, JSON
 
 ### 3.2 File Organization
 
