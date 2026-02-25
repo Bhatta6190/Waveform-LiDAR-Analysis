@@ -1,8 +1,12 @@
-## HF150 Geolocation & LVIS Waveform Extraction Workflow
+# A Novel Data-Driven Approach to Leaf Area Index Modeling Using High-Fidelity Simulation-Based Full-Waveform LiDAR Data: Test on Real Data
+
+---
+
+### HF150 Geolocation & LVIS Waveform Extraction Workflow
 
 **Date:** Feb 25, 2026   
 **Study Site:** Harvard Forest (HEM & LPH Towers), Massachusetts      
-**Project:** LAI Estimation from Airborne Waveform LiDAR + Ground Truth     
+**Aim:** LAI Estimation from Airborne Waveform LiDAR + Ground Truth     
 **Methods:** Polar-to-Cartesian Coordinate Conversion + Spatial Matching       
 **Paper:** Refer to Bhatta et al. (2025) for detailed theory on implementaion and refer to `Analysis_file.ipynb` for python implementation.
 
