@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
 LVIS-LAI MATCHING WITH SUMMER SEASON FILTERING (JULY-SEPTEMBER 2021)
-===================================================================
 
 VERSION INFO:
 - Filters LAI to EXACT YEAR (2021) only, since the LVIS data we are using was collected in Summer 2021.
