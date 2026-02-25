@@ -454,11 +454,8 @@ Novel-LAI-estimation/
 │   └── LVISC1B_GEDI2021_0806_R2112_051257.h5
 ├── processed/
 │   ├── hf150_geolocated_hem_lai.csv   # Geolocated LAI (Part 1: use `HF150_geolocator.py` script)
-│   ├── lvis_full_waveforms_hem.h5     # Matched waveforms (Part 2: use `LVIS_FILTERING_SUMMER_MONTHS.py` script)
-│   ├── lvis_attributes_hem.csv        # All attributes (Part 3: use `LVIS_FULL_WAVEFORMS_ALL_ATTRIBUTES.py` script)
-│   ├── lvis_waveforms_hem.pkl         # Python objects
-│   ├── lvis_filtered_hem.gpkg         # QGIS visualization
-│   └── lvis_metadata_hem.json         # Metadata summary
+│   ├── lvis_waveform_metric_filtered_hem.csv    # Matched waveforms (Part 2: use `LVIS_FILTERING_SUMMER_MONTHS.py` script)      
+│   ├── lvis_waveforms_hem.pkl         # All attributes (Part 3: use `LVIS_FULL_WAVEFORMS_ALL_ATTRIBUTES.py` script)
 └── reports/
     ├── README.md          # This file
     
@@ -468,7 +465,7 @@ Novel-LAI-estimation/
 
 ## REFERENCES
 
-1. Bhatta, Ramesh, Manisha Das Chaity, and Jan Van Aardt. "A Novel Data-Driven Approach to Leaf Area Index Modeling Using High Fidelity Simulation-Based Full-Waveform LiDAR Data." IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (2026).
+1. Bhatta, Ramesh, Manisha Das Chaity, and Jan Van Aardt. "A Novel Data-Driven Approach to Leaf Area Index Modeling Using High Fidelity Simulation-Based Full-Waveform LiDAR Data." IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (2026). [10.1109/JSTARS.2026.3652921](https://doi.org/10.1109/JSTARS.2026.3652921)
 2. Blair, J. B., et al. (1999). "The LVIS 3D imaging laser altimeter." Int. Archives Photogramm. Remote Sens.
 3. Haversine Formula. Wikipedia. https://en.wikipedia.org/wiki/Haversine_formula
 4. NASA LVIS Data Products. https://lvis.gsfc.nasa.gov/
