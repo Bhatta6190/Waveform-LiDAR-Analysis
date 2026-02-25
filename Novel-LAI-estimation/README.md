@@ -11,7 +11,7 @@
 **Paper:** Refer to Bhatta et al. (2025) for detailed theory on simulation based model development and implementaion and refer to `Analysis_file.ipynb` for python implementation.
 
 <p align="center">
-  <img src="./hemlock_sites.png" width="700">
+  <img src="./hemlock_sites.png" width="900">
 </p>
 
 *Figure 1. Map showing the research towers and study sites within Harvard Forest. For our validation task, we used summer 2021 data from the Hemlock (HEM) plots, which host an eddy covariance tower in an eastern hemlock forest (see Bhatta et al. (2025)).*
@@ -39,7 +39,7 @@
         - Main Output File: `lvis_waveforms_hem.pkl` (Added here)
     - `Analysis_file.ipynb`: This python notebook tests the performance of the Novel LAI estimation model (Bhatta et al.(2025)), modeled using simulated data, on the real LVIS waveforms and ground LAI-truth data from "Hemlock Sites" in Harvard Forest. This code also tests the performance of the model on "Deconvolved" waveforms data which is used to remove system contribution from raw waveform LiDAR and provide better structural representation of the underlying vegetation structure.
         - Input File(s): `lvis_waveforms_hem.pkl`
-        - Main Outputs: `Model perfomance: see the notebook file`
+        - Main Outputs: `Model perfomance: see the notebook file.`
 
 *Note: Even though our analysis is based on HEM sites only, this workflow can be run for both HEMLOCK (HEM) and Little Prospect Hill (LPH) sites. For original data from both sites (HEM and LPH) kindly refer to Harvard Forest Data Archive, Ref. [5]* 
 
