@@ -41,7 +41,7 @@ Paper DOI: [10.1109/JSTARS.2026.3652921](https://doi.org/10.1109/JSTARS.2026.365
         - Input File(s): [`lvis_waveforms_hem.pkl`](lvis_waveforms_hem.pkl)
         - Main Outputs: Model performance results (see the notebook file).
 
-*Note: Even though our analysis is based on HEM sites only, this workflow can be run for both HEMLOCK (HEM) and Little Prospect Hill (LPH) sites. For original data from both sites (HEM and LPH) kindly refer to Harvard Forest Data Archive, Ref. [5]* 
+*Note: Even though our analysis is based on HEM sites only, this workflow can be run for both HEMLOCK (HEM) and Little Prospect Hill (LPH) sites. For original data from both sites (HEM and LPH) kindly refer to Harvard Forest Data Archive, Ref. [5].* 
 
 ---
 ## PART 1: HF150 GROUND TRUTH LAI GEOLOCATION MAPPING (HEM & LPH)
