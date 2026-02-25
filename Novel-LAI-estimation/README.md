@@ -39,7 +39,7 @@ Paper DOI: [10.1109/JSTARS.2026.3652921](https://doi.org/10.1109/JSTARS.2026.365
         - Main Output File: [`lvis_waveforms_hem.pkl`](lvis_waveforms_hem.pkl) (added here)
     - [`Analysis_file.ipynb`](Analysis_file.ipynb): This Python notebook tests the performance of the novel LAI estimation model (Bhatta et al., 2025), developed using simulated data, on real LVIS waveforms and ground LAI measurements from Hemlock sites in Harvard Forest. This code also tests the performance of the model on deconvolved waveform data, which removes system contributions from raw waveform LiDAR and provides a better structural representation of the underlying vegetation.
         - Input File(s): [`lvis_waveforms_hem.pkl`](lvis_waveforms_hem.pkl)
-        - Main Outputs: Model performance results (see the notebook file).
+        - Main Outputs: Model performance results (see [`Analysis_file.ipynb`](Analysis_file.ipynb) notebook file).
 
 *Note: Even though our analysis is based on HEM sites only, this workflow can be run for both HEMLOCK (HEM) and Little Prospect Hill (LPH) sites. For original data from both sites (HEM and LPH) kindly refer to Harvard Forest Data Archive, Ref. [5].* 
 
