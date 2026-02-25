@@ -3,22 +3,23 @@
 **Date:** Feb 25, 2026
 **Study Site:** Harvard Forest (HEM & LPH Towers), Massachusetts  
 **Project:** LAI Estimation from Airborne Waveform LiDAR + Ground Truth  
-**Methods:** Polar-to-Cartesian Coordinate Conversion + Spatial Matching
+**Methods:** Polar-to-Cartesian Coordinate Conversion + Spatial Matching    
 **Paper:** Refer to Bhatta et al. (2025) for detailed theory on implementaion and refer to `Analysis_file.ipynb` for python implementation.
 
-## IMPORTANT FILES:
+---
 
-- To know how the data were pre-processed and geolocated/temporally aligned LVIS waveform-LAI pair were obtained and the LAI model was implemented, kindly refer to:
-    - 1. "README.md" file: This file, for viewing the detailed report. 
-    - 2. "HF150_geolocator.py" file: This python file converts the raw "HEM"/"LPH" LAI data into geolocated data and generated geolocated files and visuals maps.
-    - 3. "LVIS_FILTERING_SUMMER_MONTHS.py" file: Converts geolocated HF150 LAI data from 2. and matches with the nearest waveforms 
+### IMPORTANT FILES
+
+- To know how the data were pre-processed and geolocated/temporally aligned LVIS waveform-LAI pair were obtained and the LAI model was implemented, kindly refer to the following files:
+    - "README.md" file: This file, for viewing the detailed report. 
+    - "HF150_geolocator.py" file: This python file converts the raw "HEM"/"LPH" LAI data into geolocated data and generated geolocated files and visuals maps.
+    - "LVIS_FILTERING_SUMMER_MONTHS.py" file: Converts geolocated HF150 LAI data from 2. and matches with the nearest waveforms 
         to produce summary data files. Run this to extract major structural summary (such as rh100, total_energy...) corresponding to each site in csv format. 
         Other required metrics can also be added by updating the code.
-    - 4. "LVIS_FULL_WAVEFORMS_ALL_ATTRIBUTES.py" file: Similar to 3, but also saves whole raw waveform along with associated LAI values for modeling.
-    - 5. "Analysis_file.ipynb": This python notebook tests the performance of the Novel LAI estimation model (Bhatta et al.(2025)), modeled using simulated data, on the real LVIS waveforms and ground LAI-truth data from "Hemlock Sites" in Harvard Forest. This code also tests the performance of the model on "Deconvolved" waveforms data which is used to remove system contribution from raw waveform LiDAR and provide better structural representation of the underlying vegetation structure.
+    - "LVIS_FULL_WAVEFORMS_ALL_ATTRIBUTES.py" file: Similar to 3, but also saves whole raw waveform along with associated LAI values for modeling.
+    - "Analysis_file.ipynb": This python notebook tests the performance of the Novel LAI estimation model (Bhatta et al.(2025)), modeled using simulated data, on the real LVIS waveforms and ground LAI-truth data from "Hemlock Sites" in Harvard Forest. This code also tests the performance of the model on "Deconvolved" waveforms data which is used to remove system contribution from raw waveform LiDAR and provide better structural representation of the underlying vegetation structure.
 
 *Note: Even though our analysis is based on HEM sites only, this workflow can be run for both HEMLOCK (HEM) and Little Prospect Hill (LPH) sites. For original data from both sites (HEM and LPH) kindly refer to Harvard Forest Data Archive, Ref. [5]* 
----
 
 ## PART 1: HF150 GROUND TRUTH LAI GEOLOCATION MAPPING (HEM & LPH)
 
