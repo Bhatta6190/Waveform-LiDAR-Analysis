@@ -1,10 +1,23 @@
 ## HF150 Geolocation & LVIS Waveform Extraction Workflow
 
-**Date:** November 7, 2025  
+**Date:** Feb 25, 2026
 **Study Site:** Harvard Forest (HEM & LPH Towers), Massachusetts  
 **Project:** LAI Estimation from Airborne Waveform LiDAR + Ground Truth  
 **Methods:** Polar-to-Cartesian Coordinate Conversion + Spatial Matching
+**Paper:** Refer to Bhatta et al. (2025) for detailed theory on implementaion and refer to `Analysis_file.ipynb` for python implementation.
 
+## IMPORTANT FILES:
+
+- To know how the data were pre-processed and geolocated/temporally aligned LVIS waveform-LAI pair were obtained and the LAI model was implemented, kindly refer to:
+    - 1. "README.md" file: This file, for viewing the detailed report. 
+    - 2. "HF150_geolocator.py" file: This python file converts the raw "HEM"/"LPH" LAI data into geolocated data and generated geolocated files and visuals maps.
+    - 3. "LVIS_FILTERING_SUMMER_MONTHS.py" file: Converts geolocated HF150 LAI data from 2. and matches with the nearest waveforms 
+        to produce summary data files. Run this to extract major structural summary (such as rh100, total_energy...) corresponding to each site in csv format. 
+        Other required metrics can also be added by updating the code.
+    - 4. "LVIS_FULL_WAVEFORMS_ALL_ATTRIBUTES.py" file: Similar to 3, but also saves whole raw waveform along with associated LAI values for modeling.
+    - 5. "Analysis_file.ipynb": This python notebook tests the performance of the Novel LAI estimation model (Bhatta et al.(2025)), modeled using simulated data, on the real LVIS waveforms and ground LAI-truth data from "Hemlock Sites" in Harvard Forest. This code also tests the performance of the model on "Deconvolved" waveforms data which is used to remove system contribution from raw waveform LiDAR and provide better structural representation of the underlying vegetation structure.
+
+*Note: Even though our analysis is based on HEM sites only, this workflow can be run for both HEMLOCK (HEM) and Little Prospect Hill (LPH) sites. For original data from both sites (HEM and LPH) kindly refer to Harvard Forest Data Archive, Ref. [5]* 
 ---
 
 ## PART 1: HF150 GROUND TRUTH LAI GEOLOCATION MAPPING (HEM & LPH)
@@ -387,10 +400,10 @@ for wf in waveforms:
 
 #### Temporal Uncertainty
 
-**LVIS Acquisition:** Single date (August 6, 2021)
-**LAI Measurements:** ±45 days (July-September 2021)
-**LAI Variability:** Minimal (~0.2 units) over 3-month summer period
-**Assumption:** LAI stable during summer; phenological changes minimal
+**LVIS Acquisition:** Single date (August 6, 2021)  
+**LAI Measurements:** ±45 days (July-September 2021)  
+**LAI Variability:** Minimal (~0.2 units) over 3-month summer period  
+**Assumption:** LAI stable during summer; phenological changes minimal  
 
 ---
 
@@ -409,39 +422,35 @@ for wf in waveforms:
 ### 3.2 File Organization
 
 ```
-project_directory/
+Novel-LAI-estimation/
 ├── raw_data/
 │   ├── hf150-01-hem-lai.csv           # Original HF150
 │   ├── hf150-02-lph-lai.csv
 │   ├── LVISC1B_GEDI2021_0806_R2112_049718.h5  # Original LVIS
 │   └── LVISC1B_GEDI2021_0806_R2112_051257.h5
 ├── processed/
-│   ├── hf150_geolocated_hem_lai.csv   # Geolocated LAI (Part 1)
-│   ├── hf150_geolocated_lph_lai.csv
-│   ├── lvis_full_waveforms_hem.h5     # Matched waveforms (Part 2)
-│   ├── lvis_full_waveforms_lph.h5
-│   ├── lvis_attributes_hem.csv        # All attributes
-│   ├── lvis_attributes_lph.csv
+│   ├── hf150_geolocated_hem_lai.csv   # Geolocated LAI (Part 1: use `HF150_geolocator.py` script)
+│   ├── lvis_full_waveforms_hem.h5     # Matched waveforms (Part 2: use `LVIS_FILTERING_SUMMER_MONTHS.py` script)
+│   ├── lvis_attributes_hem.csv        # All attributes (Part 3: use `LVIS_FULL_WAVEFORMS_ALL_ATTRIBUTES.py` script)
 │   ├── lvis_waveforms_hem.pkl         # Python objects
-│   ├── lvis_waveforms_lph.pkl
 │   ├── lvis_filtered_hem.gpkg         # QGIS visualization
-│   ├── lvis_filtered_lph.gpkg
 │   └── lvis_metadata_hem.json         # Metadata summary
 └── reports/
-    ├── Technical_report.md          # This file
+    ├── README.md          # This file
     
 ```
-
+*Note: Run for both sites to generate individual result files.*
 ---
 
 ## REFERENCES
 
-1. Blair, J. B., et al. (1999). "The LVIS 3D imaging laser altimeter." Int. Archives Photogramm. Remote Sens.
-4. Haversine Formula. Wikipedia. https://en.wikipedia.org/wiki/Haversine_formula
-5. NASA LVIS Data Products. https://lvis.gsfc.nasa.gov/
-6. Harvard Forest Data Archive. https://harvardforest.fas.harvard.edu/
-7. Kang, Yanghui. Towards Operational Monitoring of the Agroecosystems with Satellite Remote Sensing: A Case Study in the Midwest US. The University of Wisconsin-Madison, 2020.
+1. Bhatta, Ramesh, Manisha Das Chaity, and Jan Van Aardt. "A Novel Data-Driven Approach to Leaf Area Index Modeling Using High Fidelity Simulation-Based Full-Waveform LiDAR Data." IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (2026).
+2. Blair, J. B., et al. (1999). "The LVIS 3D imaging laser altimeter." Int. Archives Photogramm. Remote Sens.
+3. Haversine Formula. Wikipedia. https://en.wikipedia.org/wiki/Haversine_formula
+4. NASA LVIS Data Products. https://lvis.gsfc.nasa.gov/
+5. Harvard Forest Data Archive. https://harvardforest.fas.harvard.edu/
+6. Kang, Yanghui. Towards Operational Monitoring of the Agroecosystems with Satellite Remote Sensing: A Case Study in the Midwest US. The University of Wisconsin-Madison, 2020.
 
-*Credit: This Readme file was prepared with the help of Perplexity AI Assistant.*
+*Credit: This Readme file was structured with the help of Perplexity AI Assistant and curated by the Author. Kindly cite Ref.[1] if using our model and Ref.[5] if using their data.*
 
 ---
