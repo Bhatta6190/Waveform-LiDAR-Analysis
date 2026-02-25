@@ -8,7 +8,8 @@
 **Study Site:** Harvard Forest (HEM & LPH Towers), Massachusetts      
 **Aim:** Testing Novel LAI Estimation Model from Airborne Waveform LiDAR in Real Harvard Forest Data    
 **Methods:** Polar-to-Cartesian Coordinate Conversion + Spatial Matching + Model Implementation + Performance Analysis       
-**Paper:** Refer to Bhatta et al. (2025) for detailed theory on simulation based model development and implementaion and refer to `Analysis_file.ipynb` for python implementation.
+**Paper:** Refer to Bhatta et al. (2025) for detailed theory on simulation based model development and implementaion and refer to `Analysis_file.ipynb` for python implementation.   
+    - DOI: 10.1109/JSTARS.2026.3652921
 
 <p align="center">
   <img src="./hemlock_sites.png" width="900">
